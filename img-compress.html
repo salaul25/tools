@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online image compression tool to optimize images with customizable compression levels. Fast, responsive, and SEO-friendly.">
+    <meta name="keywords" content="image compression, optimize images, free image compressor, responsive image tool, SEO-friendly">
+    <meta name="author" content="Image Compressor">
+    <meta name="robots" content="index, follow">
+    <title>Image Compressor - Optimize Images Online</title>
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Image Compressor - Optimize Images Online">
+    <meta property="og:description" content="Compress images quickly and easily with customizable compression levels. Free, fast, and SEO-optimized.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <meta property="og:image" content="https://yourwebsite.com/og-image.jpg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+            crossorigin="anonymous"></script>
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .drag-over {
+            border: 2px dashed #3b82f6;
+            background-color: #eff6ff;
+            transition: all 0.3s ease;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        /* Custom Slider Styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.3s;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        input[type="range"]:hover {
+            background: #d1d5db;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 shadow-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Image Compressor</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-200 transition-colors">Home</a>
+                <a href="#about" class="hover:text-blue-200 transition-colors">About</a>
+                <a href="#contact" class="hover:text-blue-200 transition-colors">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-blue-700 py-4">
+            <nav class="flex flex-col items-center space-y-4">
+                <a href="#home" class="text-white hover:text-blue-200">Home</a>
+                <a href="#about" class="text-white hover:text-blue-200">About</a>
+                <a href="#contact" class="text-white hover:text-blue-200">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
+        <!-- Ad Banner (Top) -->
+        <section class="mb-8 max-w-4xl mx-auto">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <!-- Image Compressor Section -->
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-lg max-w-4xl mx-auto mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Compress Your Images</h2>
+            <p class="text-gray-600 mb-6">Upload an image, adjust the compression level, and download the optimized version instantly.</p>
+
+            <!-- File Input and Drag-and-Drop Area -->
+            <div id="dropArea" class="border-2 border-dashed border-gray-300 p-8 sm:p-10 rounded-lg mb-6 text-center hover:border-blue-500 cursor-pointer transition-all duration-300">
+                <p class="text-gray-500 text-sm sm:text-base">Drag and drop your image here or click to select</p>
+                <input type="file" id="imageInput" accept="image/*" class="hidden">
+            </div>
+
+            <!-- Compression Level Slider -->
+            <div class="mb-6">
+                <label for="compressionLevel" class="block text-gray-700 font-medium mb-2">Compression Level: <span id="compressionValue" class="text-blue-600">50</span>%</label>
+                <input type="range" id="compressionLevel" min="10" max="100" value="50" class="w-full">
+            </div>
+
+            <!-- Compress Button -->
+            <button id="compressButton" class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors" disabled>Compress Image</button>
+
+            <!-- Progress Indicator -->
+            <div id="progress" class="hidden mt-6">
+                <p class="text-gray-600 mb-2">Compressing...</p>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div class="bg-blue-600 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Result Section -->
+            <div id="result" class="hidden mt-8">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Result</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="w-full">
+                        <h4 class="font-medium text-gray-700 mb-2">Original Image</h4>
+                        <img id="originalImage" alt="Original Image" class="rounded-lg shadow-sm">
+                        <p id="originalSize" class="text-gray-600 mt-2 text-sm"></p>
+                    </div>
+                    <div class="w-full">
+                        <h4 class="font-medium text-gray-700 mb-2">Compressed Image</h4>
+                        <img id="compressedImage" alt="Compressed Image" class="rounded-lg shadow-sm">
+                        <p id="compressedSize" class="text-gray-600 mt-2 text-sm"></p>
+                        <a id="downloadLink" href="#" download class="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 mt-4 transition-colors">Download Compressed Image</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Sidebar (Right, Desktop Only) -->
+        <aside class="hidden lg:block w-80 fixed right-4 top-24 p-4">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-sm">© 2025 Image Compressor. All rights reserved.</p>
+                <ul class="flex space-x-6 mt-4 sm:mt-0">
+                    <li><a href="#privacy" class="hover:text-blue-300 text-sm transition-colors">Privacy Policy</a></li>
+                    <li><a href="#terms" class="hover:text-blue-300 text-sm transition-colors">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Image Compression and Mobile Menu -->
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const dropArea = document.getElementById('dropArea');
+        const compressionLevel = document.getElementById('compressionLevel');
+        const compressionValue = document.getElementById('compressionValue');
+        const compressButton = document.getElementById('compressButton');
+        const progress = document.getElementById('progress');
+        const result = document.getElementById('result');
+        const originalImage = document.getElementById('originalImage');
+        const compressedImage = document.getElementById('compressedImage');
+        const originalSize = document.getElementById('originalSize');
+        const compressedSize = document.getElementById('compressedSize');
+        const downloadLink = document.getElementById('downloadLink');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // Toggle Mobile Menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Update compression level display
+        compressionLevel.addEventListener('input', () => {
+            compressionValue.textContent = compressionLevel.value;
+        });
+
+        // Drag and Drop Events
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventTypeError: Failed to execute 'addEventListener' on 'EventTarget': The provided callback is not a function. At line 2: dropArea.addEventListener('dragover', (e) => {
+            dropArea.classList.add('drag-over');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('drag-over');
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('drag-over');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                imageInput.files = files;
+                compressButton.disabled = false;
+                displayOriginalImage(files[0]);
+            }
+        });
+
+        // Click to select file
+        dropArea.addEventListener('click', () => {
+            imageInput.click();
+        });
+
+        // File input change
+        imageInput.addEventListener('change', () => {
+            if (imageInput.files.length > 0) {
+                compressButton.disabled = false;
+                displayOriginalImage(imageInput.files[0]);
+            }
+        });
+
+        // Display original image
+        function displayOriginalImage(file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                originalImage.src = reader.result;
+                originalSize.textContent = `Size: ${(file.size / 1024).toFixed(2)} KB`;
+                result.classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Compress button click
+        compressButton.addEventListener('click', () => {
+            const file = imageInput.files[0];
+            if (!file) return;
+
+            progress.classList.remove('hidden');
+            compressButton.disabled = true;
+
+            const quality = compressionLevel.value / 100;
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.src = reader.result;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    // Simulate progress
+                    let progressValue = 0;
+                    const progressBar = progress.querySelector('div');
+                    const progressInterval = setInterval(() => {
+                        progressValue += 20;
+                        progressBar.style.width = `${progressValue}%`;
+                        if (progressValue >= 100) clearInterval(progressInterval);
+                    }, 200);
+
+                    // Convert to compressed image
+                    setTimeout(() => {
+                        const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+                        compressedImage.src = compressedDataUrl;
+                        downloadLink.href = compressedDataUrl;
+                        downloadLink.download = `compressed_${file.name}`;
+
+                        // Calculate compressed size
+                        const byteString = atob(compressedDataUrl.split(',')[1]);
+                        const compressedSizeKB = (byteString.length / 1024).toFixed(2);
+                        compressedSize.textContent = `Size: ${compressedSizeKB} KB`;
+
+                        progress.classList.add('hidden');
+                        compressButton.disabled = false;
+                    }, 1000);
+                };
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>
