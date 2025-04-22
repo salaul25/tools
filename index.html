@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tools for image and PDF processing. Compress, convert, edit, and optimize your files with our user-friendly, responsive tools.">
+    <meta name="keywords" content="image tools, PDF tools, file compressor, image converter, PDF editor, free online tools, responsive tools">
+    <meta name="author" content="ToolBox">
+    <meta name="robots" content="index, follow">
+    <title>ToolBox - Free Image & PDF Tools</title>
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="ToolBox - Free Image & PDF Tools">
+    <meta property="og:description" content="Discover a wide range of free tools to compress, convert, and edit images and PDFs. Fast, responsive, and easy to use.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourtoolbox.com">
+    <meta property="og:image" content="https://yourtoolbox.com/og-image.jpg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_ID"
+            crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tool-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">ToolBox</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-200 transition-colors">Home</a>
+                <a href="#tools" class="hover:text-blue-200 transition-colors">Tools</a>
+                <a href="#about" class="hover:text-blue-200 transition-colors">About</a>
+                <a href="#contact" class="hover:text-blue-200 transition-colors">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-blue-700 py-4">
+            <nav class="flex flex-col items-center space-y-4">
+                <a href="#home" class="text-white hover:text-blue-200">Home</a>
+                <a href="#tools" class="text-white hover:text-blue-200">Tools</a>
+                <a href="#about" class="text-white hover:text-blue-200">About</a>
+                <a href="#contact" class="text-white hover:text-blue-200">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="bg-gradient-to-b from-blue-50 to-white py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">Free Image & PDF Tools</h2>
+                <p class="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                    Compress, convert, and edit your images and PDFs with our easy-to-use, responsive tools. Optimize your files in seconds!
+                </p>
+                <a href="#tools" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium">
+                    Explore Tools
+                </a>
+            </div>
+        </section>
+
+        <!-- Ad Banner (Top) -->
+        <section class="mb-12 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="tools" class="py-16 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Our Tools</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Image Compressor -->
+                    <div class="tool-card bg-gray-50 p-6 rounded-xl shadow-md">
+                        <img src="https://via.placeholder.com/150" alt="Image Compressor" class="w-16 h-16 mb-4 mx-auto">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Image Compressor</h4>
+                        <p class="text-gray-600 mb-4">Reduce image file sizes without losing quality. Customize compression levels.</p>
+                        <a href="/image-compressor" class="text-blue-600 hover:text-blue-800 font-medium">Try Now →</a>
+                    </div>
+                    <!-- Image Converter -->
+                    <div class="tool-card bg-gray-50 p-6 rounded-xl shadow-md">
+                        <img src="https://via.placeholder.com/150" alt="Image Converter" class="w-16 h-16 mb-4 mx-auto">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Image Converter</h4>
+                        <p class="text-gray-600 mb-4">Convert images between formats like JPG, PNG, and WEBP.</p>
+                        <a href="/image-converter" class="text-blue-600 hover:text-blue-800 font-medium">Try Now →</a>
+                    </div>
+                    <!-- PDF Compressor -->
+                    <div class="tool-card bg-gray-50 p-6 rounded-xl shadow-md">
+                        <img src="https://via.placeholder.com/150" alt="PDF Compressor" class="w-16 h-16 mb-4 mx-auto">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">PDF Compressor</h4>
+                        <p class="text-gray-600 mb-4">Shrink PDF files while maintaining readability and quality.</p>
+                        <a href="/pdf-compressor" class="text-blue-600 hover:text-blue-800 font-medium">Try Now →</a>
+                    </div>
+                    <!-- PDF to Word -->
+                    <div class="tool-card bg-gray-50 p-6 rounded-xl shadow-md">
+                        <img src="https://via.placeholder.com/150" alt="PDF to Word" class="w-16 h-16 mb-4 mx-auto">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">PDF to Word</h4>
+                        <p class="text-gray-600 mb-4">Convert PDF documents to editable Word files effortlessly.</p>
+                        <a href="/pdf-to-word" class="text-blue-600 hover:text-blue-800 font-medium">Try Now →</a>
+                    </div>
+                    <!-- Image Resizer -->
+                    <div class="tool-card bg-gray-50 p-6 rounded-xl shadow-md">
+                        <img src="https://via.placeholder.com/150" alt="Image Resizer" class="w-16 h-16 mb-4 mx-auto">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Image Resizer</h4>
+                        <p class="text-gray-600 mb-4">Resize images to specific dimensions for web or print.</p>
+                        <a href="/image-resizer" class="text-blue-600 hover:text-blue-800 font-medium">Try Now →</a>
+                    </div>
+                    <!-- PDF Merger -->
+                    <div class="tool-card bg-gray-50 p-6 rounded-xl shadow-md">
+                        <img src="https://via.placeholder.com/150" alt="PDF Merger" class="w-16 h-16 mb-4 mx-auto">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">PDF Merger</h4>
+                        <p class="text-gray-600 mb-4">Combine multiple PDF files into a single document.</p>
+                        <a href="/pdf-merger" class="text-blue-600 hover:text-blue-800 font-medium">Try Now →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ad Sidebar (Right, Desktop Only) -->
+        <aside class="hidden lg:block w-80 fixed right-4 top-24 p-4">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-YOUR_ADSENSE_ID"
+                 data-ad-slot="YOUR_AD_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="text-3xl font-bold text-gray-800 mb-4">About ToolBox</h3>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    ToolBox offers a suite of free, high-quality tools designed to make image and PDF processing simple and efficient. Whether you're optimizing files for web use or editing documents, our tools are fast, secure, and accessible on any device.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">ToolBox</h4>
+                    <p class="text-gray-400 text-sm">Your one-stop solution for image and PDF processing tools.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="text-gray-400 hover:text-blue-300">Home</a></li>
+                        <li><a href="#tools" class="text-gray-400 hover:text-blue-300">Tools</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-blue-300">About</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Tools</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/image-compressor" class="text-gray-400 hover:text-blue-300">Image Compressor</a></li>
+                        <li><a href="/pdf-compressor" class="text-gray-400 hover:text-blue-300">PDF Compressor</a></li>
+                        <li><a href="/image-converter" class="text-gray-400 hover:text-blue-300">Image Converter</a></li>
+                        <li><a href="/pdf-to-word" class="text-gray-400 hover:text-blue-300">PDF to Word</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm">Email: support@yourtoolbox.com</p>
+                    <p class="text-gray-400 text-sm">Follow us on social media for updates!</p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400">© 2025 ToolBox. All rights reserved.</p>
+                <ul class="flex space-x-6 mt-4 sm:mt-0">
+                    <li><a href="#privacy" class="text-gray-400 hover:text-blue-300 text-sm">Privacy Policy</a></li>
+                    <li><a href="#terms" class="text-gray-400 hover:text-blue-300 text-sm">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
